@@ -1,11 +1,11 @@
 const connection = require('../config/db');
 const dotenv = require('dotenv').config();
 
- // Tabela usuários
-async function storeUsuario(request, response) {
-   // Recuperando Formulário
+// Tabela usuários
+async function criarUsuario(request, response) {
+    // Recuperando Formulário
     const params = Array(
-        request.body.nome, 
+        request.body.nome,
         request.body.email,
         request.body.senha,
         request.body.confirmacaoSenha
@@ -16,45 +16,38 @@ async function storeUsuario(request, response) {
     console.log("senha: ", request.body.senha);
     console.log("confirmacaoSenha: ", request.body.confirmacaoSenha);
 
-    if(request.body.senha == request.body.confirmacaoSenha){
-        response
-             .status(201)
-             .json({
-                success: true,
-                message: "Sucesso!",
-                data: "Sucesso!"
-            })
+    if (request.body.senha == request.body.confirmacaoSenha) {
+
+        const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?,?,?)";
+
+        connection.query(query, params, (err, results) => {
+            if (results) {
+                response
+                    .status(201)
+                    .json({
+                        success: true,
+                        message: "Sucesso!",
+                        data: results
+                    })
+            } else {
+                response
+                    .status(400)
+                    .json({
+                        sucess: false,
+                        message: "Ops, deu problema!",
+                        data: err
+                    })
+            }
+        })
     } else {
         response
-             .status(400)
-             .json({
+            .status(400)
+            .json({
                 sucess: false,
                 message: "Ops, deu senha e confirmação de senha não iguais!",
                 data: "Ops, deu senha e confirmação de senha não iguais!",
             })
     }
-
-    const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?,?,?)";
-
-    // connection.query(query, params, (err, results) => {        
-    //     if(results) {
-    //         response
-    //          .status(201)
-    //          .json({
-    //             success: true,
-    //             message: "Sucesso!",
-    //             data: results
-    //         })
-    //     } else {
-    //         response
-    //          .status(400)
-    //          .json({
-    //             sucess: false,
-    //             message: "Ops, deu problema!",
-    //             data: err
-    //         })
-    //     }
-    // })
 }
 
 module.exports = {

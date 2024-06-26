@@ -1,4 +1,5 @@
 ## Banco de Dados (mySQL)
+
 <br>
 CREATE DATABASE techforum; <br>
 USE techforum; <br>
@@ -6,14 +7,15 @@ USE techforum; <br>
 
 CREATE TABLE usuarios(<br>
     id INT PRIMARY KEY AUTO_INCREMENT,<br>
-    nome VARCHAR(255),<br>
-    email VARCHAR(255),<br>
-    senha VARCHAR(255)<br>
+    nome VARCHAR(255) NOT NULL,<br>
+    email VARCHAR(255) NOT NULL UNIQUE,<br>
+    senha VARCHAR(255) NOT NULL<br>
 );
 
 CREATE TABLE amigos(<br>
    id_usuario INT,<br>
    id_amigo INT,<br>
+   status VARCHAR(255),<br>
    CONSTRAINT PK_amigos PRIMARY KEY (id_usuario, id_amigo),<br>
    FOREIGN KEY(id_usuario) REFERENCES usuarios(id),<br>
    FOREIGN KEY(id_amigo) REFERENCES usuarios(id)<br>
