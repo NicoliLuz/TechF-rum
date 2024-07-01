@@ -54,8 +54,6 @@ h2{
   .intro {
     width: 100%;
     height: 100%;
-   /* position: absolute;
-    top: 30%;*/
   }
 
   .boas-vindas{
@@ -92,7 +90,6 @@ h2{
 
   .boas-vindas-menu{
     width: 100%;
-    /*margin: 3px;*/
     text-align: justify;
     padding: 1rem;
   }
@@ -126,3 +123,25 @@ h2{
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  /* ----- Login ----- */
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card-login {
+  padding: 40px;
+  border-radius: 2px;
+  width: 280px;
+}
+
+.card-content-area {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
