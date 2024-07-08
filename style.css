@@ -27,9 +27,9 @@ body{
     text-decoration: none; /*remove decorações padrão*/
     display: inline-block; /*exibe um elemento como bloco*/
     font-size: 16px; /*tamanho da fonte*/
-    margin: 4px 2px; /*espaço entre elemntos*/
+    margin: 4px 2px; /*espaço entre elementos*/
     cursor: pointer; /*muda cursor para uma mão*/
-    border-radius: 10px; /*arredonda as bordas de um elemnto*/
+    border-radius: 10px; /*arredonda as bordas de um elemento*/
     outline: none !important; /*remover a borda branca*/
 }
 
@@ -149,8 +149,6 @@ h2{
     height: 1px;
     background-color: #fff;
     display: block;
-    /*margin-top: 30px;
-    margin-left: -5px*/;
 }
 .card-content label {
     color: #fff;

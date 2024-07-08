@@ -2,7 +2,6 @@ const { Router } = require('express');
 const router = Router();
 
 const { criarUsuario } = require('../controller/UsuarioController');
-
 const { adicionarAmigo } = require('../controller/AmigoController');
 const { buscarConvites } = require('../controller/AmigoController');
 const { atualizarStatus } = require('../controller/AmigoController');

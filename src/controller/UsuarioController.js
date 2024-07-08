@@ -10,7 +10,8 @@ async function criarUsuario(request, response) {
         request.body.senha,
         request.body.confirmacaoSenha
     );
-
+    
+    console.log("dentro da api");
     console.log("nome: ", request.body.nome);
     console.log("email: ", request.body.email);
     console.log("senha: ", request.body.senha);
