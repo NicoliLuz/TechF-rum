@@ -51,5 +51,5 @@ async function criarUsuario(request, response) {
 }
 
 module.exports = {
-    storeUsuario
+    criarUsuario
 }

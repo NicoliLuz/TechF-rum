@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+ 
+
+    <title>TechFórum</title>
+
+</head>
+<body>
+    <header> 
+        <a href="index.html">
+            <h1>TechFórum</h1>
+        </a>
+
+        <div class="buttons">
+            <a href='index.html'><button>Sobre</button></a>
+            <button>Menu</button></a>
+            <button>Chat</button></a>
+        </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div id="login">
+                <form id="formId" class="card">
+                    <div class="card-header">
+                        <h2>Cadatro de Usuário</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-area">
+                            <label for="usuario">Nome</label>
+                            <input type="text" id="nomeID" name="nome" autocomplete="off">
+                        </div>
+                        <div class="card-content-area">
+                            <label for="email">Email</label>
+                            <input type="email" id="emailID" name="email" autocomplete="off">
+                        </div>
+                        <div class="card-content-area">
+                            <label for="password">Senha</label>
+                            <input type="password" id="senhaID" name="senha" autocomplete="off">
+                        </div>     
+                        <div class="card-content-area">
+                            <label for="password">Confirmação da Senha</label>
+                            <input type="password" id="confirmacaoID" name="confirmacaoSenha" autocomplete="off">
+                        </div> 
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" id="submit" value="Cadastrar" class="submit">
+                        <!--a href="#" class="recuperar_senha">Esqueceu a senha?</a-->
+                    </div>
+                </form>
+            </div>            
+            
+            <h2 class="boas-vindas-img">
+                <img src="./images/robo.png" class="boas-vindas-img-robo" />
+            </h2>
+        </section>
+
+        <section></section>
+        <section></section>
+    </main>
+    <footer></footer>
+    <script>
+        document.getElementById('formId').addEventListener('submit', async function(event) {
+          event.preventDefault();
+          
+          const formData = new FormData(this);
+          const data = {};
+          formData.forEach((value, key) => {
+            console.log(key +' - '+ value);
+            data[key] = value;
+          });
+
+          alert('teste1');
+    
+          try {
+            const response = await fetch('http://localhost:3008/api/usuario/criar', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+              throw new Error('Erro na solicitação');
+            }
+    
+            const responseData = await response.json();
+            console.log('Resposta do servidor:', responseData);
+          } catch (error) {
+            console.error('Erro:', error);
+          }
+        });
+      </script>
+</body>
+</html>

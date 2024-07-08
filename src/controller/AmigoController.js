@@ -101,5 +101,7 @@ async function atualizarStatus(request, response) {
 
 
 module.exports = {
-    storeUsuario
+    adicionarAmigo,
+    buscarConvites,
+    atualizarStatus
 }
