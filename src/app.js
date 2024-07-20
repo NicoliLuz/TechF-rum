@@ -3,11 +3,11 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 const router = require('./routes/dbRouter');
 
-const app = express();
+// const app = express();
 
-app.set('port', process.env.PORT || 3308);
-app.use(cors());
-app.use(express.json());
-app.use('/api', router);
+// app.set('port', process.env.PORT || 3308);
+// app.use(cors());
+// app.use(express.json());
+// app.use('/api', router);
 
-module.exports = app;
+//module.exports = app;

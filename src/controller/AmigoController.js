@@ -35,32 +35,37 @@ async function adicionarAmigo(request, response) {
 
 // Tabela amigos
 async function buscarConvites(request, response) {
-    // Recuperando Formulário
-    const params = Array(
-        request.body.idUsuario
-    );
+    try {
+        // Recuperando Formulário
+        const params = Array(
+            request.body.idUsuario
+        );
 
-    const query = "SELECT id, id_usuario, id_amigo, status FROM amigos WHERE id_amigo = ? AND status = 'PENDENTE'";
+        const query = "SELECT id, id_usuario, id_amigo, status FROM amigos WHERE id_amigo = ? AND status = 'PENDENTE'";
 
-    connection.query(query, params, (err, results) => {
-        if (results) {
-            response
-                .status(200)
-                .json({
-                    success: true,
-                    message: "Sucesso!",
-                    data: results
-                })
-        } else {
-            response
-                .status(400)
-                .json({
-                    sucess: false,
-                    message: "Ops, deu problema!",
-                    data: err
-                })
-        }
-    })
+        connection.query(query, params, (err, results) => {
+            if (results) {
+                response
+                    .status(200)
+                    .json({
+                        success: true,
+                        message: "Sucesso!",
+                        data: results
+                    })
+            } else {
+                response
+                    .status(400)
+                    .json({
+                        sucess: false,
+                        message: "Ops, deu problema!",
+                        data: err
+                    })
+            }
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 // Tabela amigos
