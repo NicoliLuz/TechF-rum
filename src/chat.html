@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+
+
+    <title>TechFórum</title>
+
+</head>
+
+<body>
+    <header>
+        <a href="/index">
+            <h1>TechFórum</h1>
+        </a>
+
+        <div class="buttons">
+            <a href='/sobre'><button>Sobre</button></a>
+
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="/ramificacoes">Ramificações</a>
+                    <a href="/mediasalarial">Média Salarial</a>
+                    <a href="/empresas">Empresas</a>
+                    <a href="/softskills">Soft Skills</a>
+                    <a href="/automacao">Automação</a>
+                </div>
+            </div>
+            <a href='/chat'><button>Chat</button></a>
+        </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div id="login">
+                <form id="formId" class="card">
+                    <div class="card-header">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-content-area">
+                            <label for="emailId">Email</label>
+                            <input type="email" id="emailId" name="email" autocomplete="off" required="true">
+                        </div>
+                        <div class="card-content-area">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="senha" autocomplete="off" required="true">
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="login" class="submit">
+                        <!--a href="#" class="recuperar_senha">Esqueceu a senha?</a-->
+                        <a href="/cadastroUsuario" class="recuperar_senha">Realizar cadastro</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+
+        /*Acionando um evento n*/
+        document.addEventListener('DOMContentLoaded', () => {
+            const formulario = document.getElementById('formId');
+
+            formulario.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(formulario);
+                console.log(JSON.stringify(formData));
+
+                const data = {};
+                formData.forEach((value, key) => {
+                    console.log(key + ' - ' + value);
+                    data[key] = value;
+                });
+
+                try {
+                    const response = await fetch('http://localhost:3308/usuario/logar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const responseData = await response.json();
+                    if (response.status == 200) {
+                        var body = JSON.stringify(responseData.data[0]);
+                        localStorage.setItem("usuario", JSON.parse(body).nome);
+                        localStorage.setItem("email", JSON.parse(body).email);
+
+                        formulario.reset();
+                        window.location.href = "/chatUsuario";
+                    } else {
+                        alert(responseData.message);
+                    }
+                } catch (error) {
+                    console.error('Erro:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
