@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 /*importando os módulos*/
+=======
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 
 class App {
     constructor() {
+<<<<<<< HEAD
         const cors = require('cors'); /*Importa o cors*/
 
         this.app = express(); /*Inicia a aplicação Express*/
@@ -19,6 +23,21 @@ class App {
     }
 
     /*Inicia um servidor HTTP na porta definida como 3308 e exibe a confirmação*/
+=======
+        const cors = require('cors');
+
+        this.app = express();
+        this.app.use(cors());
+        this.app.use(express.json());
+        this.http = http.createServer(this.app);
+        this.io = new Server(this.http);
+        this.listenSocket();
+        this.setupRoutes();
+
+        this.app.use(express.static('public'));
+    }
+
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
     listenServer() {
         console.log('server chat iniciado');
         this.http.listen(3308, () => console.log('server is running on port 3308'));
@@ -26,15 +45,23 @@ class App {
 
     listenSocket() {
         this.io.on('connection', (socket) => {
+<<<<<<< HEAD
             console.log('user connected => ', socket.id); /*escuta as conexões feitas no chat e registra o ID do usuário*/
 
             socket.on('message', (msg) => {
                 this.io.emit('message', msg); /*quando o servidor escutar uma mensagem ele a retransmite para os outros, para fazer a comunicação*/
+=======
+            console.log('user connected => ', socket.id);
+
+            socket.on('message', (msg) => {
+                this.io.emit('message', msg);
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
             });
         });
     }
 
     setupRoutes() {
+<<<<<<< HEAD
         /*importa o Path, usado para manipular arquivos*/
         const path = require('path');
         /*importa o Router, que define o comportamento das rotas*/
@@ -46,6 +73,15 @@ class App {
         /*Envia o arquivo index.html da pasta public para o navegador por diferentes rotas*/
         this.app.get('/', (req, res) => {
             res.sendFile(path.join(__dirname, '../public/', 'index.html')); 
+=======
+        const path = require('path');
+        const router = require('./routes/dbRouter');
+
+        this.app.use(router);
+
+        this.app.get('/', (req, res) => {
+            res.sendFile(path.join(__dirname, '../public/', 'index.html'));
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
         });
 
         this.app.get('/index', (req, res) => {
@@ -56,7 +92,10 @@ class App {
             res.sendFile(path.join(__dirname, '../public/', 'index.html'));
         });
 
+<<<<<<< HEAD
         /*enviando os demais arquivos, correspondente as páginas*/
+=======
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
         this.app.get('/chat', (req, res) => {
             res.sendFile(__dirname + '/chat.html');
         });
@@ -99,6 +138,9 @@ class App {
     }
 }
 
+<<<<<<< HEAD
 /*Para o servidor começar a ouvir as requisições...*/
+=======
+>>>>>>> 2fe8ae69d228607713ea5a9d37da5089ce1aabe4
 const app = new App();
 app.listenServer();
