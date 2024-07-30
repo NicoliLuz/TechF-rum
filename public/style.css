@@ -44,7 +44,7 @@ body {
   /*remover a borda branca*/
 }
 
-/* -----  Fonte Keania One ----- */
+/* ----- Fonte Keania One ----- */
 h1 {
   font-family: "Keania One", sans-serif;
   color: white;
@@ -278,4 +278,12 @@ h2 {
 
 .actionButton:hover {
   background-color: #0056b3;
+}
+
+/* ----- Textos Questionário ----- */
+.img-questionario {
+  width: 21%;
+  height: 70%;
+  margin-top: 1rem;
+  padding: 1rem;
 }
