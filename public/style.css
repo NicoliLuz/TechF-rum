@@ -53,6 +53,7 @@ h1 {
 h2 {
   font-family: "Keania One", sans-serif;
   color: white;
+  font-size: 21px;
 }
 
 .keania-one-regular {
@@ -288,3 +289,7 @@ h2 {
   padding: 1rem;
 }
 
+/* ----- Tamanho <p> ----- */
+p {
+  margin: 22px;
+}
