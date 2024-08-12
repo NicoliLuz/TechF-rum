@@ -293,3 +293,11 @@ h2 {
 p {
   margin: 22px;
 }
+
+/* ----- Imagens Ramificações ----- */
+.img-ramificacoes {
+  display: flex;
+  width: 25%;
+  text-align: justify;
+  padding: 1rem;
+}
