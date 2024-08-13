@@ -301,3 +301,18 @@ p {
   text-align: justify;
   padding: 1rem;
 }
+
+/* ----- Configurações lerMais ----- */
+.content {
+  height: 50vh;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+.content.expanded {
+  height: auto;
+}
+.ler-mais {
+  cursor: pointer;
+  color: rgb(246, 246, 247);
+  text-decoration: underline;
+}
