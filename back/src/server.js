@@ -44,15 +44,15 @@ class App {
 
         /*Envia o arquivo index.html da pasta public para o navegador por diferentes rotas*/
         this.app.get('/', (req, res) => {
-            res.sendFile(path.join(__dirname, '../public/', 'index.html')); 
+            res.sendFile(path.join(__dirname, '../front/', 'index.html')); 
         });
 
         this.app.get('/index', (req, res) => {
-            res.sendFile(path.join(__dirname, '../public/', 'index.html'));
+            res.sendFile(path.join(__dirname, '../front/', 'index.html'));
         });
 
         this.app.get('/index.html', (req, res) => {
-            res.sendFile(path.join(__dirname, '../public/', 'index.html'));
+            res.sendFile(path.join(__dirname, '../front/', 'index.html'));
         });
 
         /*enviando os demais arquivos, correspondente as páginas*/
