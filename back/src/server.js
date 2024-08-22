@@ -15,7 +15,7 @@ class App {
         this.listenSocket();
         this.setupRoutes();
 
-        this.app.use(express.static('public'));
+        this.app.use(express.static('front'));
     }
 
     listenServer() {
