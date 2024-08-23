@@ -56,8 +56,7 @@
                     </div>
                     <div class="card-footer">
                         <input type="submit" value="login" class="submit">
-                        <!--a href="#" class="recuperar_senha">Esqueceu a senha?</a-->
-                        <a href="/cadastroUsuario" class="recuperar_senha">Realizar cadastro</a>
+                        <a href="./cadastroUsuario.html" class="recuperar_senha">Realizar cadastro</a>
                     </div>
                 </form>
             </div>
@@ -98,7 +97,7 @@
                         localStorage.setItem("email", JSON.parse(body).email);
 
                         formulario.reset();
-                        window.location.href = "/chatUsuario";
+                        window.location.href = "/front/chatUsuario.html";
                     } else {
                         alert(responseData.message);
                     }

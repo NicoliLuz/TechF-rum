@@ -64,7 +64,6 @@
           </div>
           <div class="card-footer">
             <input type="submit" id="submit" value="Cadastrar" class="submit">
-            <!--a href="#" class="recuperar_senha">Esqueceu a senha?</a-->
           </div>
         </form>
       </div>
@@ -103,7 +102,7 @@
             alert('Usuário cadastrado com sucesso! \n\n Você será redirecionado para o Chat!');
 
             formulario.reset();
-            window.location.href = "/chatUsuario";
+            window.location.href = "/front/chatUsuario.html";
           } else {
             const responseData = await response.json();
             console.log('Resposta do servidor:', responseData);
