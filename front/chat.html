@@ -70,39 +70,44 @@
             const formulario = document.getElementById('formId');
 
             formulario.addEventListener('submit', async (event) => {
-                event.preventDefault();
+                event.preventDefault(); /*evita um comportamento padrao de erro, evita de executar uma ação padrão do navegador*/
 
-                const formData = new FormData(formulario);
+                const formData = new FormData(formulario); /*facilita o envio de dados de formulário, incluindo requisições HTTP*/
                 console.log(JSON.stringify(formData));
 
                 const data = {};
-                formData.forEach((value, key) => {
-                    console.log(key + ' - ' + value);
-                    data[key] = value;
+                formData.forEach((value, key) => { /*forEach - percorre cada valor-chave*/
+                    console.log(key + ' - ' + value); /*Imprime no console a chave e o valor no formato chave - valor*/
+                    data[key] = value; /*Adiciona ou atualiza a propriedade key no objeto data com o valor correspondente value*/
                 });
 
                 try {
+                    /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+                    /*await espera a resposta da requisição antes de continuar a execução do código*/
                     const response = await fetch('http://localhost:3308/usuario/logar', {
-                        method: 'POST',
+                        method: 'POST', /*Define o método HTTP da requisição como POST*/
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
                         },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(data) /*Converte o objeto data em uma string JSON.*/
                     });
 
-                    const responseData = await response.json();
+                    const responseData = await response.json(); /*response.json() converte a resposta da requisição em um objeto JavaScript.*/
                     if (response.status == 200) {
+
+                        /*Converte o primeiro item do array responseData.data em uma string JSON e armazena em body*/
                         var body = JSON.stringify(responseData.data[0]);
+                        /*localStorage está sendo usado para armazenar informações do usuário após uma resposta bem-sucedida de uma requisição*/
                         localStorage.setItem("usuario", JSON.parse(body).nome);
                         localStorage.setItem("email", JSON.parse(body).email);
 
-                        formulario.reset();
-                        window.location.href = "/front/chatUsuario.html";
+                        formulario.reset(); /*Limpa os campos do formulário*/
+                        window.location.href = "/front/chatUsuario.html"; /*Redireciona o usuário para a página de chat.*/
                     } else {
-                        alert(responseData.message);
+                        alert(responseData.message); /*xibe uma mensagem de erro se a resposta não for bem-sucedida*/
                     }
                 } catch (error) {
-                    console.error('Erro:', error);
+                    console.error('Erro:', error); /*Captura e exibe erros que possam ocorrer durante a execução*/
                 }
             });
         });
