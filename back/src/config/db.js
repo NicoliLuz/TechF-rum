@@ -1,6 +1,6 @@
 /*Importando os módulos*/
-const mysql = require('mysql2');
-const dotenv = require('dotenv').config();
+const mysql = require('mysql2'); /*bliblioteca que conecta e interage com o BD mySQL*/
+const dotenv = require('dotenv').config(); /*carrega variaveis do .env*/
 
 /*Criando conexão com o BD*/
 /*// Cria a conexão com o banco de dados usando o método `createConnection` do pacote mysql2. 
