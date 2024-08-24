@@ -11,7 +11,13 @@ class App {
         this.app.use(cors());
         this.app.use(express.json());
         this.http = http.createServer(this.app);
-        this.io = new Server(this.http);
+        this.io = require("socket.io")(this.http, {
+            cors: {
+             // permite o browser fazer requisições da porta 5500
+              origin: "http://127.0.0.1:5500",
+              methods: ["GET", "POST", "PUT", "DELETE"]
+            }
+          });
         this.listenSocket();
         this.setupRoutes();
 

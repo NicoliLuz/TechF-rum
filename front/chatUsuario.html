@@ -51,9 +51,9 @@
   </main>
   <footer></footer>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="http://localhost:3308/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
+    var socket = io.connect('http://localhost:3308');
     const messages = document.getElementById('messages');
     const input = document.getElementById('input');
     const usuarioLogado = localStorage.getItem("usuario");
@@ -82,24 +82,24 @@
       divMessage.textContent = message.message
 
       // Criar o botão de ação
-      const actionButton = document.createElement('button');
-      actionButton.textContent = 'Responder';
-      actionButton.className = 'actionButton';
+      // const actionButton = document.createElement('button');
+      // actionButton.textContent = 'Responder';
+      // actionButton.className = 'actionButton';
 
       // Adicionar evento de clique ao botão
-      actionButton.addEventListener('click', () => {
-        const resposta = prompt('Digite sua resposta:');
-        if (resposta) {
-          // Enviar a resposta ao servidor usando socket.emit
-          socket.emit('responseMessage', {
-            usuario: message.usuarioLogado,
-            response: resposta,
-          });
-        }
-      });
+      // actionButton.addEventListener('click', () => {
+      //   const resposta = prompt('Digite sua resposta:');
+      //   if (resposta) {
+      //     // Enviar a resposta ao servidor usando socket.emit
+      //     socket.emit('responseMessage', {
+      //       usuario: message.usuarioLogado,
+      //       response: resposta,
+      //     });
+      //   }
+      // });
 
       // Adicionar o botão ao divUsuario
-      divUsuario.appendChild(actionButton);
+     // divUsuario.appendChild(actionButton);
 
       li.appendChild(divUsuario)
       li.appendChild(divMessage)
