@@ -1,29 +1,34 @@
+// Importa a conexão com o banco de dados que foi configurada no arquivo `db.js` 
+// dentro da pasta`config`.
 const connection = require('../config/db');
+
+// Carrega as variáveis de ambiente do arquivo `.env` (configura ligação com banco)
 const dotenv = require('dotenv').config();
 
  // Tabela usuários
 async function storeTask(request, response) {
    // Recuperando Formulário
     const params = Array(
-        request.body.title, 
-        request.body.description,
-        request.body.senha
+        request.body.title, /*Nome do usuário*/
+        request.body.description, /*Gmail*/
+        request.body.senha /*Senha*/
     );
 
     const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?,?,?)";
 
+    /*Executa a consulta SQL com os parâmetros que foram extraídos do formulário*/
     connection.query(query, params, (err, results) => {        
-        if(results) {
+        if(results) { /*se for sucesso...*/
             response
-             .status(201)
-             .json({
+             .status(201) /*Define o status HTTP 201, que indica que algo foi criado com sucesso*/
+             .json({      /*Envia uma resposta em formato JSON com a mensagem de sucesso*/
                 success: true,
                 message: "Sucesso!",
                 data: results
             })
-        } else {
+        } else { /*se der erro...*/
             response
-             .status(400)
+             .status(400) /*Define o status HTTP 400, que indica uma solicitação inválida*/
              .json({
                 sucess: false,
                 message: "Ops, deu problema!",

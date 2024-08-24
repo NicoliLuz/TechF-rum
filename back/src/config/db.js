@@ -3,6 +3,9 @@ const mysql = require('mysql2');
 const dotenv = require('dotenv').config();
 
 /*Criando conexão com o BD*/
+/*// Cria a conexão com o banco de dados usando o método `createConnection` do pacote mysql2. 
+// As informações de conexão (host, user, password, database) são retiradas do arquivo .env através
+  do process.env.*/
 const connection = mysql.createConnection({
     host: process.env.DB_HOST, /*endereço do servidor*/
     user: process.env.DB_USER, /*nome do usuário*/
@@ -13,10 +16,11 @@ const connection = mysql.createConnection({
 /*estabelece a conexão com o banco*/
 connection.connect(function(err) {
     if(err) {
-        throw err;
+        throw err; /*força o código a parar se der erro e mostra-lo*/
     } else {
         console.log("MySql conectado!"); /*se der sucesso, exibe a mensagem*/
     }
 });
 
 module.exports = connection;
+/*Exporta a conexão para que outros arquivos do projeto possam usar essa conexão com o banco de dados.*/
