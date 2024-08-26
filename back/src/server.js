@@ -107,3 +107,4 @@ class App {
 /*Para o servidor começar a ouvir as requisições...*/
 const app = new App();
 app.listenServer();
+

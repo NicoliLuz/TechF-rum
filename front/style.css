@@ -316,3 +316,26 @@ p {
   color: rgb(90, 90, 150);
   text-decoration: underline;
 }
+
+/* ----- Postagens Usuários ----- */
+.comment {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #45649b;
+}
+.comment p {
+  margin: 0;
+}
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.delete-btn:hover {
+  background-color: #c82333;
+}

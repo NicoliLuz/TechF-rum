@@ -193,6 +193,16 @@
 
                 <button class="ler-mais" id="btnLerMais" type="button" onclick="lerMais()">Ler Mais</button>
 
+                <div id="comments-section">
+                    <h3>Comentários</h3>
+                    <form id="comment-form">
+                        <input type="text" id="name-input" placeholder="Seu nome" required />
+                        <textarea id="comment-input" placeholder="Escreva seu comentário aqui" required></textarea>
+                        <button type="submit">Postar</button>
+                    </form>
+                    <div id="comments-list"></div>
+                </div>
+
                 <!-- <script src="lerMais.js"></script> -->
                 <!--<button onclick="" id="lermais">Ler Mais</button>
                 <script type="text/JavaScript" src="lerMais.js"></script>-->
@@ -210,5 +220,7 @@
     <footer></footer>
 
     <script src="./lerMais.js"></script>
+    <script src="comments.js"></script>
 </body>
+
 </html>
