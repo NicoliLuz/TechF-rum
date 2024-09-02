@@ -328,7 +328,7 @@ p {
 .post p {
   margin: 0;
 }
-.delete-btn {
+.botaoExcluir {
   background-color: #dc3545;
   color: white;
   border: none;
@@ -336,6 +336,6 @@ p {
   cursor: pointer;
   border-radius: 3px;
 }
-.delete-btn:hover {
+.botaoExcluir:hover {
   background-color: #c82333;
 }
