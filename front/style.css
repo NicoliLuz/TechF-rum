@@ -318,14 +318,14 @@ p {
 }
 
 /* ----- Postagens Usuários ----- */
-.comment {
+.post {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #45649b;
 }
-.comment p {
+.post p {
   margin: 0;
 }
 .delete-btn {
