@@ -39,26 +39,37 @@
     <main>
         <section class="intro">
             <h2 class="boas-vindas-menu">
-                <p>Neste espaço você vai poder navegar e encontrar empresas de TI que estão presentes no
-                Rio Grande do Sul, assim como informações sobre elas, como localização, contato, fotos e
-                mais!</p>
-                
-                <p>Esperamos que essa ferramente lhe ajuda e contactar empresas, seja procurando estágio ou
-                vagas de emprego. Confira nosso mapa abaixo para maiores detalhes e visualização!</p>
+                <div class="content">
+                    <p>Neste espaço você vai poder navegar e encontrar empresas de TI que estão presentes no
+                        Rio Grande do Sul, assim como informações sobre elas, como localização, contato, fotos e
+                        mais!</p>
+
+                    <p>Esperamos que essa ferramente lhe ajuda e contactar empresas, seja procurando estágio ou
+                        vagas de emprego. Confira nosso mapa abaixo para maiores detalhes e visualização!</p>
+                </div>
+
+                <iframe
+                    src="https://www.google.com/maps/d/embed?mid=1cNlGS9twOfIdUh2ZclTQEweD3qJM5wA&ehbc=2E312F&noprof=1"
+                    width="640" height="480"></iframe>
+
+                <div id="secao-comentarios">
+                    <h3>Comentários</h3>
+                    <form id="formsComentario">
+                        <input type="text" id="meuInput" placeholder="Seu nome" required />
+                        <textarea id="comentarioUsuario" placeholder="Escreva seu comentário aqui" required></textarea>
+                        <button type="submit">Postar</button>
+                    </form>
+                    <div id="comentariosLista"></div>
+                </div>
             </h2>
-            
-            <iframe src="https://www.google.com/maps/d/embed?mid=1cNlGS9twOfIdUh2ZclTQEweD3qJM5wA&ehbc=2E312F&noprof=1"
-                width="640" height="480"></iframe>
-            <!-- <h2 class="boas-vindas-img">
-                <img src="./images/computador.png" class="boas-vindas-img-comp" />
-            </h2>
-            <! -->
         </section>
 
         <section></section>
         <section></section>
     </main>
     <footer></footer>
+
+    <script src="comentarios.js"></script>
 </body>
 
 </html>
