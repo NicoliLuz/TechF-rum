@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap" rel="stylesheet">
+
 
     <title>TechFórum</title>
 
@@ -43,8 +47,7 @@
                     <p>Arquitetura de Software - a média salarial para profissionais deste setor é, em média, R$
                         12.326,00 no Brasil, podendo receber um valor de 8.908,00 inicialmente.
                         Porém, isso varia de acordo com a experiência do funcionário, por exemplo, no site Glassdoor
-                        mostra que algumas das empresas que estão com vagas para Arquitetura de Software oferecem até R$
-                        14 mil.
+                        mostra que algumas das empresas que estão com vagas para Arquitetura de Software oferecem até R$ 14 mil.
                         (https://www.glassdoor.com.br/Sal%C3%A1rios/arquiteto-de-software-sal%C3%A1rio-SRCH_KO0,21.htm)
                     </p>
 
@@ -83,15 +86,28 @@
                             ligado
                             outros setores podem aumentar essa mádia, mas este é o recorte.</p>
 
-                            <p>Qualidade de Software - a remuneração estimada é de R$ 3 mil - R$ 6 mil, analisando algunas das empresas do
-                                Rio Grande do Sul, tem oportunidades valendo de R$ 7 mil à R$ 8 mil. É importante enfatizar que isto é um
-                                dado básico, dependendo da vaga, trabalhador que está concorrendo à vaga, especializações no setor...... 
-                            </p>
+                        <p>Qualidade de Software - a remuneração estimada é de R$ 3 mil - R$ 6 mil, analisando algunas
+                            das empresas do
+                            Rio Grande do Sul, tem oportunidades valendo de R$ 7 mil à R$ 8 mil. É importante enfatizar
+                            que isto é um
+                            dado básico, dependendo da vaga, trabalhador que está concorrendo à vaga, especializações no
+                            setor......
+                        </p>
 
                     </span>
                 </div>
 
                 <button class="ler-mais" id="btnLerMais" type="button" onclick="lerMais()">Ler Mais</button>
+
+                <div id="secao-comentarios">
+                    <h3>Comentários</h3>
+                    <form id="formsComentario">
+                        <input type="text" id="meuInput" placeholder="Seu nome" required />
+                        <textarea id="comentarioUsuario" class="barraComentario" placeholder="Escreva seu comentário aqui" required></textarea>
+                        <button type="submit" class="submitBotao">Postar</button>
+                    </form>
+                    <div id="comentariosLista"></div>
+                </div>
 
 
             </h2>
@@ -103,6 +119,7 @@
     <footer></footer>
 
     <script src="lerMais.js"></script>
+    <script src="comentarios.js"></script>
 </body>
 
 </html>
