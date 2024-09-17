@@ -170,7 +170,7 @@ h2 {
 }
 
 .card {
-  background-color: rgba(19, 19, 19, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 40px;
   border-radius: 2px;
   /*width: 280px;*/
@@ -226,6 +226,7 @@ h2 {
   color: #e1e1e1;
   margin: 10px 0;
   font-size: 14px;
+  border-radius: 11px;
 }
 
 .card-footer a {
@@ -334,24 +335,30 @@ p {
   cursor: pointer;
   color: white;
   text-decoration: underline;
-  background-color: #29489e;
+  background-color: #57cbcf;
+  border: 3px solid #298f84;
 }
 
+.ler-mais:hover {
+  background-color: #48afb3 ;
+}
 /* ----- Postagens Usuários ----- */
 .post {
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 3px solid #ddd;
   border-radius: 5px;
   background-color: #45649b;
 }
 .post p {
   margin: 0;
 }
+
 .botaoExcluir {
   background-color: #dc3545;
   color: white;
-  border: none;
+  border: 3px solid #b11b2a;
+  /*border: none;*/
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 3px;
@@ -361,20 +368,22 @@ p {
 }
 
 .submitBotao {
-  background-color: #29489e;
+  background-color: #3bcb7a;
   color: white;
-  border: none;
+  border: 3px solid #107f45;
+  /*border: none;*/
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 3px;
 }
 
 .submitBotao:hover {
-  background-color: #172e6b;
+  background-color: #2ba861;
 }
 
 .barraComentario{
   width: 100%;
   height: 76px;
+  border: 3px solid #6f97dd;
   /*background-color: rgb(188, 218, 236);*/
 }
