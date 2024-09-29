@@ -14,9 +14,10 @@ CREATE TABLE usuarios(<br>
 
 CREATE TABLE postagens(<br>
     id INT PRIMARY KEY AUTO_INCREMENT,<br>
-    titulo VARCHAR(255),<br>
-    informacoes TEXT,<br>
-    datapost TIMESTAMP<br>
+    nome VARCHAR(255) NOT NULL,<br>
+    textoPost TEXT NOT NULL,<br>
+    pagina VARCHAR(100) NOT NULL,<br>
+    datapost TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
 );
 
 Tabelas excluídas

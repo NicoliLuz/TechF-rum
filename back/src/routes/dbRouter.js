@@ -3,17 +3,11 @@ const router = Router();
 
 const { criarUsuario } = require('../controller/UsuarioController');
 const { logarUsuario } = require('../controller/UsuarioController');
-const { adicionarAmigo } = require('../controller/AmigoController');
-const { buscarConvites } = require('../controller/AmigoController');
-const { atualizarStatus } = require('../controller/AmigoController');
 
-//const { postarMensagem } = require('../controller/MensagemController');
-//const { postarConversa } = require('../controller/ConversaController');
+const { addComentarioRamificacao } = require('../controller/PostagemController');
 
 router.post('/usuario/criar', criarUsuario);
 router.post('/usuario/logar', logarUsuario);
-router.post('/amigo/adicionar', adicionarAmigo);
-router.get('/amigo/buscarConvites', buscarConvites);
-router.put('/amigo/atualizarStatus', atualizarStatus);
+router.post('/post/addComentarioRamificacao', addComentarioRamificacao);
 
 module.exports = router;

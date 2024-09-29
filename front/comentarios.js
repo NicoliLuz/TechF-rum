@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const comentarioSalvo = JSON.parse(localStorage.getItem(pagina)) || []; //Converte comentários salvos no localStorage (formato string) para um Array, exibindo os post salvos na página quando for recarregada
 
     // Exibe os comentários salvos na página
-    comentarioSalvo.forEach((post, index) => { 
+    comentarioSalvo.forEach((post, index) => {
         addComentarioNaPagina(post, index);
     });
 
@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
             addComentarioNaPagina(novoPost, comentarioSalvo.length); //Exibe o novo coentário na página
 
             // Adiciona novo post no Array e salva ele no localStorage (definido acima)
-            comentarioSalvo.push(novoPost); 
-            localStorage.setItem(pagina, JSON.stringify(comentarioSalvo)); 
+            comentarioSalvo.push(novoPost);
+            localStorage.setItem(pagina, JSON.stringify(comentarioSalvo));
 
             // Limpar campos do forms (nome e comentário) após o envio, deixando limpo e/ou vazio para novos posts
-            document.getElementById('meuInput').value = ''; 
-            document.getElementById('comentarioUsuario').value = '';
+            //document.getElementById('meuInput').value = ''; 
+            //document.getElementById('comentarioUsuario').value = '';
         }
     });
     function addComentarioNaPagina(post, index) {  //Define uma função que cria e envia novos comentários para a página
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             listaComentario.removeChild(e.target.parentElement);
             comentarioSalvo.splice(index, 1);
             localStorage.setItem(pagina, JSON.stringify(comentarioSalvo));
-            
+
             // Atualizar índices dos comentários restantes
             Array.from(listaComentario.children).forEach((child, i) => {
                 const button = child.querySelector('.botaoExcluir');
