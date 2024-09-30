@@ -3,13 +3,25 @@ const connection = require('../config/db');
 /*Carrega as variáveis de ambiente do arquivo `.env`, permitindo acessar informações */
 const dotenv = require('dotenv').config();
 
-// Tabela postagens
+// Add comentários no menu
 async function addComentarioRamificacao(request, response) {
     await addComentario(request, response, 'RAMIFICACAO');
 }
 
 async function addComentarioMedia(request, response) {
     await addComentario(request, response, 'MEDIA');
+}
+
+async function addComentarioEmpresa(request, response) {
+    await addComentario(request, response, 'EMPRESA');
+}
+
+async function addComentarioSkill(request, response) {
+    await addComentario(request, response, 'SKILL');
+}
+
+async function addComentarioAutomacao(request, response) {
+    await addComentario(request, response, 'AUTOMACAO');
 }
 
 // Tabela postagens
@@ -55,5 +67,9 @@ function addComentario(request, response, pagina) {
 }
 
 module.exports = {
-    addComentarioRamificacao
+    addComentarioRamificacao,
+    addComentarioMedia,
+    addComentarioEmpresa,
+    addComentarioSkill,
+    addComentarioAutomacao
 }
