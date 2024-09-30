@@ -325,12 +325,17 @@ p {
   margin: 70px;
 }
 
-/* ----- Imagens Ramificações ----- */
+/* ----- Imagens Menu ----- */
 .img-ramificacoes {
   display: flex;
   width: 33%;
   text-align: justify;
+}
 
+.img-softskills {
+  display: flex;
+  width: 33%;
+  text-align: justify;
 }
 
 /* ----- Configurações lerMais ----- */
