@@ -102,9 +102,32 @@ class App {
             res.sendFile(__dirname + '/cadastroUsuario.html');
         });
     }
+    swagger(){
+        /*Configurações do Swagger*/
+    const swaggerUi = require('swagger-ui-express');
+    const swaggerJsDoc = require('swagger-jsdoc');
+
+    const swaggerOptions = {
+        swaggerDefinition: {
+            openapi: "3.0.0",
+            info: {
+                title: "API de Tarefas",
+                version: "1.0.0",
+                description: "API CRUD para gerenciar tarefas",
+            },
+            servers: [{ url: "http://localhost:3308" }],
+        },
+        apis: [`${__dirname}/routes/*.js`], // Caminho para as rotas
+    };
+
+
+    const swaggerDocs = swaggerJsDoc(swaggerOptions);
+    this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+    }
 }
 
 /*Para o servidor começar a ouvir as requisições...*/
 const app = new App();
 app.listenServer();
-
+app.swagger();

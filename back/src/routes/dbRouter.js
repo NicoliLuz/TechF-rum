@@ -22,3 +22,8 @@ router.post('/post/addComentarioSkill', addComentarioSkill);
 router.post('/post/addComentarioAutomacao', addComentarioAutomacao);
 
 module.exports = router;
+
+/**
+ * @swagger
+ * escrever aqui...
+ */
