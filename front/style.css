@@ -120,7 +120,7 @@ h2 {
 .boas-vindas-img-robo {
   width: 60%;
   height: 70%;
-  margin-top: 3rem;
+  margin-top: -108px;
   padding: 1rem;
 }
 
@@ -335,6 +335,12 @@ p {
 .img-softskills {
   display: flex;
   width: 33%;
+  text-align: justify;
+}
+
+.img-mediasalarial {
+  display: flex;
+  width: 28%;
   text-align: justify;
 }
 
