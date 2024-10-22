@@ -1,9 +1,47 @@
 const { Router } = require('express');
 const router = Router();
 
-//Criar usuário e Login
+//Criar usuário 
 const { criarUsuario } = require('../controller/UsuarioController');
+/**
+ * @swagger
+ * /usuario/criar:
+ *   post:
+ *    summary: Cria/cadastra um novo usuario
+ *    responses:
+ *      201:
+ *        description: Sucesso!
+ *      400:
+ *        description: Ops, deu problema! 
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: string
+ *              itens:
+ *                 type: object
+ */
+
+
+//Login usuário 
 const { logarUsuario } = require('../controller/UsuarioController');
+/**
+ * @swagger
+ * /usuario/logar:
+ *   post:
+ *    summary: Loga um usuario ja cadastrado
+ *    responses:
+ *      200:
+ *        description: Sucesso!
+ *      400:
+ *        description: Usuário/Senha Incorreto
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: string
+ *              itens:
+ *                 type: object
+ */
+
 
 //Criar postagens nas páginas menu
 const { addComentarioRamificacao } = require('../controller/PostagemController');
@@ -25,7 +63,3 @@ router.get('/get/listarComentariosRamificacao', listarComentariosRamificacao);
 
 module.exports = router;
 
-/**
- * @swagger
- * escrever aqui...
- */
