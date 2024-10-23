@@ -42,10 +42,45 @@ const { logarUsuario } = require('../controller/UsuarioController');
  *                 type: object
  */
 
-
 //Criar postagens nas páginas menu
 const { addComentarioRamificacao } = require('../controller/PostagemController');
+/**
+ * @swagger
+ * /post/addComentarioRamificacao:
+ *   post:
+ *    summary: Cria um novo comentário na página Ramificações
+ *    responses:
+ *      201:
+ *        description: Sucesso!
+ *      400:
+ *        description: Ops, deu problema! 
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: string
+ *              itens:
+ *                 type: object
+ */
+
 const { addComentarioMedia } = require('../controller/PostagemController');
+/**
+ * @swagger
+ * /post/addComentarioMedia:
+ *   post:
+ *    summary: Cria um novo comentário na página de Média Salarial
+ *    responses:
+ *      201:
+ *        description: Sucesso!
+ *      400:
+ *        description: Ops, deu problema! 
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: string
+ *              itens:
+ *                 type: object
+ */
+
 const { addComentarioEmpresa } = require('../controller/PostagemController');
 const { addComentarioSkill } = require('../controller/PostagemController');
 const { addComentarioAutomacao } = require('../controller/PostagemController');

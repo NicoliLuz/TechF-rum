@@ -238,7 +238,7 @@
     <script>
         // Carrega o HTML de Comentários
         document.addEventListener('DOMContentLoaded', async () => {
-            listarComentariosFormatado();
+            listarComentariosFormatado('RAMIFICACAO');
         });
     </script>
     <script>
@@ -257,8 +257,8 @@
                     console.log(key + ' - ' + value); /*Imprime no console a chave e o valor no formato chave - valor*/
                     data[key] = value; /*Adiciona ou atualiza a propriedade key no objeto data com o valor correspondente value*/
                 });
-                addComentario(data, formulario);
-                listarComentariosFormatado();
+                addComentario(data, formulario, 'RAMIFICACAO');
+                listarComentariosFormatado('RAMIFICACAO');
             });
         });
     </script>

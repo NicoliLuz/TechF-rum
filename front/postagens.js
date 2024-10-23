@@ -1,8 +1,16 @@
-async function addComentario(data, formulario) {
+async function addComentario(data, formulario, pagina) {
     try {
         /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
         /*await espera a resposta da requisição antes de continuar a execução do código*/
-        const response = await fetch('http://localhost:3308/post/addComentarioRamificacao', {
+        var response = null;
+        var url = '';
+        if (pagina == 'RAMIFICACAO') {
+            url = 'http://localhost:3308/post/addComentarioRamificacao';
+        } else if (pagina == 'MEDIA') {
+            url = 'http://localhost:3308/post/addComentarioMedia';
+        }
+
+        response = await fetch(url, {
             method: 'POST', /*Define o método HTTP da requisição como POST*/
             headers: {
                 'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
@@ -21,23 +29,7 @@ async function addComentario(data, formulario) {
     }
 }
 
-async function listarComentarios() {
-    try {
-        /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
-        /*await espera a resposta da requisição antes de continuar a execução do código*/
-        const response = await fetch('http://localhost:3308/get/listarComentariosRamificacao', {
-            method: 'GET', /*Define o método HTTP da requisição como POST*/
-            headers: {
-                'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
-            }
-        });
-        return response;
-    } catch (error) {
-        console.error('Erro:', error); /*Captura e exibe erros que possam ocorrer durante a execução*/
-    }
-}
-
-async function listarComentariosFormatado() {
+async function listarComentariosFormatado(pagina) {
     try {
 
         const listaComentario = document.getElementById('comentariosLista'); //Encontra o elemento da página onde os comentários serão exibidos
@@ -47,7 +39,7 @@ async function listarComentariosFormatado() {
 
         /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
         /*await espera a resposta da requisição antes de continuar a execução do código*/
-        const response = await listarComentarios();
+        const response = await listarComentarios(pagina);
 
         const responseData = await response.json(); /*response.json() converte a resposta da requisição em um objeto JavaScript.*/
         if (response.status != 200) {
@@ -70,7 +62,7 @@ async function listarComentariosFormatado() {
             postElement.className = 'post';
             postElement.innerHTML = `
             <p><strong>${post.nome}:</strong> ${post.textoPost}</p> 
-            
+            <p>Postado em: ${post.datapost}<p>
                     `; //O strong destaca o nome do usuário no post com negrito - data-index armazena o índice (posição) no post no Array, ajuda na identificação do excluir
             listaComentario.appendChild(postElement);
 
@@ -92,6 +84,29 @@ async function listarComentariosFormatado() {
                 });
             }
         });
+    } catch (error) {
+        console.error('Erro:', error); /*Captura e exibe erros que possam ocorrer durante a execução*/
+    }
+}
+
+async function listarComentarios(pagina) {
+    try {
+        /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+        /*await espera a resposta da requisição antes de continuar a execução do código*/
+        var response = null;
+        var url = '';
+        if (pagina == 'RAMIFICACAO') {
+            url = 'http://localhost:3308/get/listarComentariosRamificacao';
+        } else if (pagina == 'MEDIA') {
+            url = 'http://localhost:3308/listarComentariosMedia';
+        }
+        response = await fetch(url, {
+            method: 'GET', /*Define o método HTTP da requisição como POST*/
+            headers: {
+                'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
+            }
+        });
+        return response;
     } catch (error) {
         console.error('Erro:', error); /*Captura e exibe erros que possam ocorrer durante a execução*/
     }
