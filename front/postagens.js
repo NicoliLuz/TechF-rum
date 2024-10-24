@@ -97,9 +97,11 @@ async function listarComentarios(pagina) {
         var url = '';
         if (pagina == 'RAMIFICACAO') {
             url = 'http://localhost:3308/get/listarComentariosRamificacao';
+
         } else if (pagina == 'MEDIA') {
             url = 'http://localhost:3308/listarComentariosMedia';
         }
+        
         response = await fetch(url, {
             method: 'GET', /*Define o método HTTP da requisição como POST*/
             headers: {

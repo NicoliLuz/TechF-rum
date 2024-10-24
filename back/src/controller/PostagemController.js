@@ -117,4 +117,9 @@ module.exports = {
     addComentarioSkill,
     addComentarioAutomacao,
     listarComentariosRamificacao
+    /**listarComentariosMedia,
+    listarComentariosEmpresa,
+    listarComentariosSkill,
+    listarComentariosAutomacao */
+
 }
