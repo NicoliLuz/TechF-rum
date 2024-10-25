@@ -169,7 +169,7 @@ const { listarComentariosMedia } = require('../controller/PostagemController');
  * @swagger
  * /get/listarComentariosMedia:
  *   get:
- *    summary: Lista os comentários na página Empresa
+ *    summary: Lista os comentários na página Media
  *    responses:
  *      201:
  *        description: Sucesso!
@@ -189,7 +189,7 @@ const { listarComentariosEmpresa } = require('../controller/PostagemController')
  * @swagger
  * /get/listarComentariosEmpresa:
  *   get:
- *    summary: Lista os comentários na página Ramificacao
+ *    summary: Lista os comentários na página Empresa
  *    responses:
  *      201:
  *        description: Sucesso!
@@ -252,11 +252,10 @@ router.post('/post/addComentarioSkill', addComentarioSkill);
 router.post('/post/addComentarioAutomacao', addComentarioAutomacao);
 
 router.get('/get/listarComentariosRamificacao', listarComentariosRamificacao);
-/*
-router.get('/get/listarComentariosMedia', listarComentariosMedia);
-router.get('/get/listarComentariosEmpresa', listarComentariosEmpresa);
+router.get('/get/listarComentariosMedia', listarComentariosMedia)
+router.get('/get/listarComentariosEmpresa', listarComentariosEmpresa); 
 router.get('/get/listarComentariosSkill', listarComentariosSkill);
-router.get('/get/listarComentariosAutomacao', listarComentariosAutomacao);*/
+router.get('/get/listarComentariosAutomacao', listarComentariosAutomacao);
 
 module.exports = router;
 

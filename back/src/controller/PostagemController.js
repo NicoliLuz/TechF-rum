@@ -24,9 +24,28 @@ async function addComentarioAutomacao(request, response) {
     await addComentario(request, response, 'AUTOMACAO');
 }
 
+
+// listar
 async function listarComentariosRamificacao(request, response) {
     await listarComentarios(request, response, 'RAMIFICACAO');
 }
+
+async function listarComentariosMedia(request, response) {
+    await listarComentarios(request, response, 'MEDIA');
+}
+
+async function listarComentariosSkill(request, response) {
+    await listarComentarios(request, response, 'SKILL');
+}
+
+async function listarComentariosEmpresa(request, response) {
+    await listarComentarios(request, response, 'EMPRESA');
+}
+
+async function listarComentariosAutomacao(request, response) {
+    await listarComentarios(request, response, 'AUTOMACAO');
+}
+
 
 // Tabela postagens
 function listarComentarios(request, response, pagina) {
@@ -116,10 +135,11 @@ module.exports = {
     addComentarioEmpresa,
     addComentarioSkill,
     addComentarioAutomacao,
-    listarComentariosRamificacao
-    /**listarComentariosMedia,
+
+    listarComentariosRamificacao,
+    listarComentariosMedia,
     listarComentariosEmpresa,
     listarComentariosSkill,
-    listarComentariosAutomacao */
+    listarComentariosAutomacao 
 
 }

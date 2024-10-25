@@ -163,7 +163,13 @@
     <footer></footer>
 
     <script src="lerMais.js"></script>
-    <script src="comentarios.js"></script>
+    <script src="./postagens.js"></script>
+    <script>
+        // Carrega o HTML de Comentários
+        document.addEventListener('DOMContentLoaded', async () => {
+            listarComentariosFormatado('AUTOMACAO');
+        });
+    </script>
     <script>
         /*Acionando um evento na DOM*/
         document.addEventListener('DOMContentLoaded', () => {
@@ -180,27 +186,8 @@
                     console.log(key + ' - ' + value); /*Imprime no console a chave e o valor no formato chave - valor*/
                     data[key] = value; /*Adiciona ou atualiza a propriedade key no objeto data com o valor correspondente value*/
                 });
-
-                try {
-                    /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
-                    /*await espera a resposta da requisição antes de continuar a execução do código*/
-                    const response = await fetch('http://localhost:3308/post/addComentarioAutomacao', {
-                        method: 'POST', /*Define o método HTTP da requisição como POST*/
-                        headers: {
-                            'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
-                        },
-                        body: JSON.stringify(data) /*Converte o objeto data em uma string JSON.*/
-                    });
-
-                    const responseData = await response.json(); /*response.json() converte a resposta da requisição em um objeto JavaScript.*/
-                    if (response.status == 201) {
-                        formulario.reset(); /*Limpa os campos do formulário*/
-                    } else {
-                        alert(responseData.message); /*xibe uma mensagem de erro se a resposta não for bem-sucedida*/
-                    }
-                } catch (error) {
-                    console.error('Erro:', error); /*Captura e exibe erros que possam ocorrer durante a execução*/
-                }
+                addComentario(data, formulario, 'AUTOMACAO');
+                listarComentariosFormatado('AUTOMACAO');
             });
         });
     </script>

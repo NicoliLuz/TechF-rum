@@ -6,8 +6,18 @@ async function addComentario(data, formulario, pagina) {
         var url = '';
         if (pagina == 'RAMIFICACAO') {
             url = 'http://localhost:3308/post/addComentarioRamificacao';
+
         } else if (pagina == 'MEDIA') {
             url = 'http://localhost:3308/post/addComentarioMedia';
+
+        } else if (pagina == 'SKILL') {
+            url = 'http://localhost:3308/postComentariosSkill';
+
+        } else if (pagina == 'EMPRESA') {
+            url = 'http://localhost:3308/postComentariosEmpresa';
+
+        } else if (pagina == 'AUTOMACAO') {
+            url = 'http://localhost:3308/postComentariosAutomacao';
         }
 
         response = await fetch(url, {
@@ -99,7 +109,16 @@ async function listarComentarios(pagina) {
             url = 'http://localhost:3308/get/listarComentariosRamificacao';
 
         } else if (pagina == 'MEDIA') {
-            url = 'http://localhost:3308/listarComentariosMedia';
+            url = 'http://localhost:3308/get/listarComentariosMedia';
+
+        } else if (pagina == 'SKILL') {
+            url = 'http://localhost:3308/get/listarComentariosSkill'; 
+
+        } else if (pagina == 'EMPRESA') {
+            url = 'http://localhost:3308/get/listarComentariosEmpresa';
+
+        } else if (pagina == 'AUTOMACAO') {
+            url = 'http://localhost:3308/get/listarComentariosAutomacao';
         }
         
         response = await fetch(url, {

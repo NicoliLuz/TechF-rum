@@ -20,6 +20,8 @@ CREATE TABLE postagens(<br>
     datapost TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
 );
 
+delete from postagens where id in (2);
+
 Tabelas excluídas
 
 drop table amigos;
