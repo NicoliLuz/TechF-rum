@@ -11,13 +11,13 @@ async function addComentario(data, formulario, pagina) {
             url = 'http://localhost:3308/post/addComentarioMedia';
 
         } else if (pagina == 'SKILL') {
-            url = 'http://localhost:3308/postComentariosSkill';
+            url = 'http://localhost:3308/post/addComentarioSkill';
 
         } else if (pagina == 'EMPRESA') {
-            url = 'http://localhost:3308/postComentariosEmpresa';
+            url = 'http://localhost:3308/post/addComentarioEmpresa';
 
         } else if (pagina == 'AUTOMACAO') {
-            url = 'http://localhost:3308/postComentariosAutomacao';
+            url = 'http://localhost:3308/post/addComentarioAutomacao';
         }
 
         response = await fetch(url, {
@@ -72,7 +72,7 @@ async function listarComentariosFormatado(pagina) {
             postElement.className = 'post';
             postElement.innerHTML = `
             <p><strong>${post.nome}:</strong> ${post.textoPost}</p> 
-            <p>Postado em: ${post.datapost}<p>
+            <p>Postado em: ${formatTimestamp(post.datapost)}<p>
                     `; //O strong destaca o nome do usuário no post com negrito - data-index armazena o índice (posição) no post no Array, ajuda na identificação do excluir
             listaComentario.appendChild(postElement);
 
@@ -99,6 +99,17 @@ async function listarComentariosFormatado(pagina) {
     }
 }
 
+// Função para formatar o timestamp ISO
+function formatTimestamp(isoTimestamp) {
+    // Criando um objeto Date diretamente a partir do ISO timestamp
+    const date = new Date(isoTimestamp);
+
+    // Formatação personalizada
+    const formattedDate = `${date.getUTCDate().toString().padStart(2, '0')}/${(date.getUTCMonth() + 1).toString().padStart(2, '0')}/${date.getUTCFullYear()} ${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}:${date.getUTCSeconds().toString().padStart(2, '0')}`;
+
+    return formattedDate;
+}
+
 async function listarComentarios(pagina) {
     try {
         /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
@@ -112,7 +123,7 @@ async function listarComentarios(pagina) {
             url = 'http://localhost:3308/get/listarComentariosMedia';
 
         } else if (pagina == 'SKILL') {
-            url = 'http://localhost:3308/get/listarComentariosSkill'; 
+            url = 'http://localhost:3308/get/listarComentariosSkill';
 
         } else if (pagina == 'EMPRESA') {
             url = 'http://localhost:3308/get/listarComentariosEmpresa';
@@ -120,7 +131,7 @@ async function listarComentarios(pagina) {
         } else if (pagina == 'AUTOMACAO') {
             url = 'http://localhost:3308/get/listarComentariosAutomacao';
         }
-        
+
         response = await fetch(url, {
             method: 'GET', /*Define o método HTTP da requisição como POST*/
             headers: {

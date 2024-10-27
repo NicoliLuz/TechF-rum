@@ -10,7 +10,8 @@ const connection = mysql.createConnection({
     host: process.env.DB_HOST, /*endereço do servidor*/
     user: process.env.DB_USER, /*nome do usuário*/
     password: process.env.DB_PASSWORD, /*senha*/
-    database: process.env.DB_DATABASE /*nome do banco*/
+    database: process.env.DB_DATABASE, /*nome do banco*/
+    timezone: "America/Sao_Paulo    "
 });
 
 /*estabelece a conexão com o banco*/

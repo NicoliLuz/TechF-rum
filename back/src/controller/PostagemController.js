@@ -140,6 +140,6 @@ module.exports = {
     listarComentariosMedia,
     listarComentariosEmpresa,
     listarComentariosSkill,
-    listarComentariosAutomacao 
+    listarComentariosAutomacao
 
 }
