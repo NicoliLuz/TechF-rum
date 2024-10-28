@@ -340,6 +340,12 @@ p {
 
 .img-mediasalarial {
   display: flex;
+  width: 20%;
+  text-align: justify;
+}
+
+.img-automacao {
+  display: flex;
   width: 28%;
   text-align: justify;
 }
