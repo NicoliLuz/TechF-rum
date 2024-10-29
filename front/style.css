@@ -340,6 +340,12 @@ p {
 
 .img-mediasalarial {
   display: flex;
+  width: 32%;
+  text-align: justify;
+}
+
+.img-mediasalarial-progressoes {
+  display: flex;
   width: 20%;
   text-align: justify;
 }
