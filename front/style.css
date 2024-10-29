@@ -356,6 +356,12 @@ p {
   text-align: justify;
 }
 
+.img-automacao-pesquisa {
+  display: flex;
+  width: 20%;
+  text-align: justify;
+}
+
 /* ----- Configurações lerMais ----- */
 .ler-mais {
   cursor: pointer;
