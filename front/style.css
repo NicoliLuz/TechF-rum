@@ -16,6 +16,9 @@ header {
   padding: 50px 20px;
 }
 
+.img-logoHeader {
+  height: 60px;
+}
 
 /* ----- Body ----- */
 body {
@@ -72,6 +75,11 @@ body::after {
 h1 {
   font-family: "Keania One", sans-serif;
   color: white;
+}
+
+#logo-TechForum {
+  display: flex;
+  align-items: center;
 }
 
 h2 {

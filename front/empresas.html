@@ -14,9 +14,12 @@
 
 <body>
     <header>
-        <a href="./index.html">
-            <h1>TechFórum</h1>
-        </a>
+        <div id="logo-TechForum">
+            <img src="./imagens/logoTechForum.png" class="img-logoHeader" />
+            <a href="./index.html">
+                <h1>TechFórum</h1>
+            </a>
+        </div>
 
         <div class="buttons">
             <a href='sobre.html'><button>Sobre</button></a>
@@ -52,17 +55,17 @@
                     src="https://www.google.com/maps/d/embed?mid=1cNlGS9twOfIdUh2ZclTQEweD3qJM5wA&ehbc=2E312F&noprof=1"
                     width="100%" height="480"></iframe>
 
-                    <div id="secao-comentarios">
-                        <h3>Comentários</h3>
-                        <form id="formsComentario">
-                            <input type="text" id="meuInput" name="nome" placeholder="Seu nome" required="true" />
-                            <textarea id="comentarioUsuario" name="textoPost" class="barraComentario"
-                                placeholder="Escreva seu comentário aqui" required></textarea>
-                            <!--button type="submit" class="submitBotao">Postar</button-->
-                            <input type="submit" value="Postar" class="submitBotao">
-                        </form>
-                        <div id="comentariosLista"></div>
-                    </div>
+                <div id="secao-comentarios">
+                    <h3>Comentários</h3>
+                    <form id="formsComentario">
+                        <input type="text" id="meuInput" name="nome" placeholder="Seu nome" required="true" />
+                        <textarea id="comentarioUsuario" name="textoPost" class="barraComentario"
+                            placeholder="Escreva seu comentário aqui" required></textarea>
+                        <!--button type="submit" class="submitBotao">Postar</button-->
+                        <input type="submit" value="Postar" class="submitBotao">
+                    </form>
+                    <div id="comentariosLista"></div>
+                </div>
             </h2>
         </section>
 
