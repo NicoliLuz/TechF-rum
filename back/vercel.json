@@ -1,15 +1,22 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "back/package.json", 
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "back/src/server.js"
-      }
-    ]
-  }
+  "projects": [
+    {
+      "name": "front",
+      "path": "front",
+      "buildCommand": "npm install && npm run build",
+      "outputDirectory": "build"
+    },
+    {
+      "name": "back",
+      "path": "back",
+      "functions": {
+        "api/*": {
+          "runtime": "vercel-node@2",
+          "includeFiles": "server.js"
+        }
+      },
+      "buildCommand": "npm install",
+      "outputDirectory": "."
+    }
+  ]
+}
