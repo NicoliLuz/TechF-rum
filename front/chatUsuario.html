@@ -54,9 +54,9 @@
   </main>
   <footer></footer>
 
-  <script src="http://localhost:3308/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io.connect('http://localhost:3308');
+    var socket = io.connect();
     const messages = document.getElementById('messages');
     const input = document.getElementById('input');
     const usuarioLogado = localStorage.getItem("usuario");
