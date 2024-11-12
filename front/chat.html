@@ -112,7 +112,7 @@
                         localStorage.setItem("email", JSON.parse(body).email);
 
                         formulario.reset(); /*Limpa os campos do formulário*/
-                        window.location.href = "/front/chatUsuario.html"; /*Redireciona o usuário para a página de chat.*/
+                        window.location.href = baseURL + "/front/chatUsuario.html"; /*Redireciona o usuário para a página de chat.*/
                     } else {
                         alert(responseData.message); /*xibe uma mensagem de erro se a resposta não for bem-sucedida*/
                     }
