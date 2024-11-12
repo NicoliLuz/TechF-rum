@@ -1,5 +1,4 @@
-// Importa a conexão com o banco de dados que foi configurada no arquivo `db.js` 
-// dentro da pasta`config`.
+// Importa a conexão com o BD que foi configurada no arquivo `db.js` dentro da pasta`config`.
 const connection = require('../config/db');
 
 // Carrega as variáveis de ambiente do arquivo `.env` (configura ligação com banco)
@@ -9,9 +8,9 @@ const dotenv = require('dotenv').config();
 async function storeTask(request, response) {
    // Recuperando Formulário
     const params = Array(
-        request.body.title, /*Nome do usuário*/
-        request.body.description, /*Gmail*/
-        request.body.senha /*Senha*/
+        request.body.title, /*nome do usuário*/
+        request.body.description, /*gmail*/
+        request.body.senha /*senha*/
     );
 
     const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?,?,?)";

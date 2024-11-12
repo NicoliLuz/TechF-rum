@@ -77,14 +77,15 @@
     document.addEventListener('DOMContentLoaded', () => {
       const formulario = document.getElementById('formId');
 
+      /*Adiciona um evento de submit que é executado ao enviar o forms*/
       formulario.addEventListener('submit', async (event) => {
-        event.preventDefault();
+        event.preventDefault(); /*impede uma ação padrao de regarregar a pagina apos enviar o forms*/
 
-        const formData = new FormData(formulario);
+        const formData = new FormData(formulario); 
         console.log(JSON.stringify(formData));
 
         const data = {};
-        formData.forEach((value, key) => {
+        formData.forEach((value, key) => { 
           console.log(key + ' - ' + value);
           data[key] = value;
         });

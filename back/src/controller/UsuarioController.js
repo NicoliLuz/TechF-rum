@@ -1,5 +1,6 @@
-/*Importa a conexão com o banco de dados configurada no arquivo `db.js` dentro da pasta `config`*/
+/*Importa a conexão com o BD configurada no arquivo `db.js` dentro da pasta `config`*/
 const connection = require('../config/db');
+
 /*Carrega as variáveis de ambiente do arquivo `.env`, permitindo acessar informações */
 const dotenv = require('dotenv').config();
 
@@ -75,7 +76,7 @@ async function logarUsuario(request, response) {
 
         const query = "SELECT * FROM usuarios where email = ? and senha = ?";
 
-        /*/*Faz uma consulta no mySQL*/
+        /*Faz uma consulta no mySQL*/
         connection.query(query, params, (err, results) => {
             console.log(results);
             if (results.length > 0) {

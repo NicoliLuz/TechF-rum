@@ -1,5 +1,10 @@
+//Importa o nodulo express, necessario para gerenciar as rotas
 const { Router } = require('express');
+
+//Permite definir rotas especificas (get, post...)
 const router = Router();
+
+//Swagger - serve para documentar a API, permitindo que outras pessoas as rotas usadas
 
 //Criar usuário 
 const { criarUsuario } = require('../controller/UsuarioController');

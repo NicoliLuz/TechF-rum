@@ -3,18 +3,17 @@ const mysql = require('mysql2'); /*bliblioteca que conecta e interage com o BD m
 const dotenv = require('dotenv').config(); /*carrega variaveis do .env*/
 
 /*Criando conexão com o BD*/
-/*// Cria a conexão com o banco de dados usando o método `createConnection` do pacote mysql2. 
-// As informações de conexão (host, user, password, database) são retiradas do arquivo .env através
-  do process.env.*/
+/*// Cria a conexão com o BD usando o método `createConnection` do pacote mysql2. 
+// As informações de conexão (host, user, password, database) são retiradas do arquivo .env através do process.env.*/
 const connection = mysql.createConnection({
     host: process.env.DB_HOST, /*endereço do servidor*/
     user: process.env.DB_USER, /*nome do usuário*/
     password: process.env.DB_PASSWORD, /*senha*/
     database: process.env.DB_DATABASE, /*nome do banco*/
-    timezone: "America/Sao_Paulo    "
+    timezone: "America/Sao_Paulo    " /*define o fuso horario para exibir datas e horas (para os posts)*/
 });
 
-/*estabelece a conexão com o banco*/
+/*Estabelece a conexão com o banco*/
 connection.connect(function (err) {
     if (err) {
         throw err; /*força o código a parar se der erro e mostra-lo*/
