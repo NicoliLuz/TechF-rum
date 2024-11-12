@@ -85,9 +85,16 @@
                 });
 
                 try {
-                    /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+                    /*fetch é uma função usada para fazer requisições HTTP*/
                     /*await espera a resposta da requisição antes de continuar a execução do código*/
-                    const response = await fetch('http://localhost:3308/usuario/logar', {
+                    var baseURL = `${window.location.hostname}`;
+                    if (baseURL == 'tech-forum-front.vercel.app') {
+                        baseURL = 'https://tech-forum-nine.vercel.app:443'
+                    } else {
+                        baseURL = 'http://localhost:3308'
+                    }
+
+                    const response = await fetch(baseURL + '/usuario/logar', {
                         method: 'POST', /*Define o método HTTP da requisição como POST*/
                         headers: {
                             'Content-Type': 'application/json' /*informar ao servidor que o corpo da requisição está no formato JSON*/
