@@ -1,7 +1,7 @@
 async function addComentario(data, formulario, pagina) {
     try {
         var baseURL = `${window.location.hostname}`;
-        if (baseURL == 'techforum.site') {
+        if (baseURL == 'tech-forum-front.vercel.app') {
             baseURL = 'https://tech-forum-nine.vercel.app:443'
         } else {
             baseURL = 'http://localhost:3308'
@@ -120,7 +120,7 @@ function formatTimestamp(isoTimestamp) {
 async function listarComentarios(pagina) {
     try {
         var baseURL = `${window.location.hostname}`;
-        if (baseURL == 'techforum.site') {
+        if (baseURL == 'tech-forum-front.vercel.app') {
             baseURL = 'https://tech-forum-nine.vercel.app:443'
         } else {
             baseURL = 'http://localhost:3308'
