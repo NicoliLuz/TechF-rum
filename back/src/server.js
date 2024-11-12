@@ -24,9 +24,9 @@ class App {
         this.app.use(express.static('front')); /*Define a pasta 'front' para servir arquivos estáticos como HTML*/
     }
 
-    listenServer() { /*faz o servidor começar a funcionar e escutar na porta 3308*/
+    listenServer() { /*faz o servidor começar a funcionar e escutar na porta*/
         console.log('server chat iniciado');
-        this.http.listen(3308, () => console.log('server is running on port 3308'));
+        this.http.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
     }
 
     listenSocket() { /*configura o Socket.io para lidar com conexões de usuários e mensagens*/
@@ -74,7 +74,7 @@ class App {
                     version: "1.0.0",
                     description: "API's para comentários, usuários e chat",
                 },
-                servers: [{ url: "http://localhost:3308" }],
+                servers: [{ url: "http://localhost" }],
             },
             apis: [`${__dirname}/routes/*.js`], // Caminho para as rotas
         };

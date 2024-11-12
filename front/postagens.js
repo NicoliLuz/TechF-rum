@@ -1,23 +1,30 @@
 async function addComentario(data, formulario, pagina) {
     try {
-        /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+        var baseURL = `${window.location.hostname}`;
+        if (baseURL == 'techforum.site') {
+            baseURL = 'https://tech-forum-nine.vercel.app:443'
+        } else {
+            baseURL = 'http://localhost:3308'
+        }
+
+        /*fetch é uma função usada para fazer requisições HTTP*/
         /*await espera a resposta da requisição antes de continuar a execução do código*/
         var response = null;
         var url = '';
         if (pagina == 'RAMIFICACAO') {
-            url = 'http://localhost:3308/post/addComentarioRamificacao';
+            url = baseURL + '/post/addComentarioRamificacao';
 
         } else if (pagina == 'MEDIA') {
-            url = 'http://localhost:3308/post/addComentarioMedia';
+            url = baseURL + '/post/addComentarioMedia';
 
         } else if (pagina == 'SKILL') {
-            url = 'http://localhost:3308/post/addComentarioSkill';
+            url = baseURL + '/post/addComentarioSkill';
 
         } else if (pagina == 'EMPRESA') {
-            url = 'http://localhost:3308/post/addComentarioEmpresa';
+            url = baseURL + '/post/addComentarioEmpresa';
 
         } else if (pagina == 'AUTOMACAO') {
-            url = 'http://localhost:3308/post/addComentarioAutomacao';
+            url = baseURL + '/post/addComentarioAutomacao';
         }
 
         response = await fetch(url, {
@@ -47,7 +54,7 @@ async function listarComentariosFormatado(pagina) {
             listaComentario.removeChild(listaComentario.lastChild);
         }
 
-        /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+        /*fetch é uma função usada para fazer requisições HTTP*/
         /*await espera a resposta da requisição antes de continuar a execução do código*/
         const response = await listarComentarios(pagina);
 
@@ -112,24 +119,31 @@ function formatTimestamp(isoTimestamp) {
 
 async function listarComentarios(pagina) {
     try {
-        /*fetch é uma função usada para fazer requisições HTTP, está fazendo uma requisição para a URL 'http://localhost:3308/usuario/logar'*/
+        var baseURL = `${window.location.hostname}`;
+        if (baseURL == 'techforum.site') {
+            baseURL = 'https://tech-forum-nine.vercel.app:443'
+        } else {
+            baseURL = 'http://localhost:3308'
+        }
+
+        /*fetch é uma função usada para fazer requisições HTTP*/
         /*await espera a resposta da requisição antes de continuar a execução do código*/
         var response = null;
         var url = '';
         if (pagina == 'RAMIFICACAO') {
-            url = 'http://localhost:3308/get/listarComentariosRamificacao';
+            url = baseURL + '/get/listarComentariosRamificacao';
 
         } else if (pagina == 'MEDIA') {
-            url = 'http://localhost:3308/get/listarComentariosMedia';
+            url = baseURL + '/get/listarComentariosMedia';
 
         } else if (pagina == 'SKILL') {
-            url = 'http://localhost:3308/get/listarComentariosSkill';
+            url = baseURL + '/get/listarComentariosSkill';
 
         } else if (pagina == 'EMPRESA') {
-            url = 'http://localhost:3308/get/listarComentariosEmpresa';
+            url = baseURL + '/get/listarComentariosEmpresa';
 
         } else if (pagina == 'AUTOMACAO') {
-            url = 'http://localhost:3308/get/listarComentariosAutomacao';
+            url = baseURL + '/get/listarComentariosAutomacao';
         }
 
         response = await fetch(url, {

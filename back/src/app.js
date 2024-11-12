@@ -3,9 +3,9 @@ const dotenv = require('dotenv').config(); /*importando o dotenv*/
 const cors = require('cors'); /*importando o cors*/
 const router = require('./routes/dbRouter'); /*importando as routes*/
 
- const app = express();
+const app = express();
 
-// app.set('port', process.env.PORT || 3308);
+// app.set('port', process.env.PORT);
 // app.use(cors());
 // app.use(express.json());
 // app.use('/api', router);
