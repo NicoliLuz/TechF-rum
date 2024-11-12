@@ -2,7 +2,7 @@
 const express = require('express'); /*importa o Express, um framework para criar servidores web*/
 const http = require('http'); /*importa o módulo HTTP nativo do Node.js*/
 const { Server } = require('socket.io'); /*importa o Socket.io para comunicação em tempo real */
- 
+
 class App {
     constructor() { /*Importa o módulo CORS para permitir que o navegador faça requisições de diferentes origens*/
         const cors = require('cors');
@@ -13,11 +13,11 @@ class App {
         this.http = http.createServer(this.app); /*cria um servidor HTTP que usa o servidor web do Express*/
         this.io = require("socket.io")(this.http, { /*configura o Socket.io para comunicação em tempo real*/
             cors: {
-             // permite o browser fazer requisições da porta 5500 por causa do live server
-              origin: "http://127.0.0.1:5500",
-              methods: ["GET", "POST", "PUT", "DELETE"]
+                // permite o browser fazer requisições da porta 5500 por causa do live server
+                origin: "http://127.0.0.1:5500",
+                methods: ["GET", "POST", "PUT", "DELETE"]
             }
-          });
+        });
         this.listenSocket(); /*configura o Socket.io para lidar com conexões e mensagens*/
         this.setupRoutes(); /*configura as rotas para servir arquivos e responder a requisições*/
 
@@ -50,7 +50,7 @@ class App {
 
         /*envia o arquivo index.html da pasta public para o navegador por diferentes rotas*/
         this.app.get('/', (req, res) => {
-            res.sendFile(path.join(__dirname, '../front/', 'index.html')); 
+            res.sendFile(path.join(__dirname, '../front/', 'index.html'));
         });
 
         this.app.get('/index', (req, res) => {
@@ -60,69 +60,28 @@ class App {
         this.app.get('/index.html', (req, res) => {
             res.sendFile(path.join(__dirname, '../front/', 'index.html'));
         });
-
-        /*enviando os demais arquivos, correspondente as páginas*/
-        this.app.get('/chat', (req, res) => {
-            res.sendFile(__dirname + '/chat.html');
-        });
-
-        this.app.get('/chatUsuario', (req, res) => {
-            res.sendFile(__dirname + '/chatUsuario.html');
-        });
-
-        this.app.get('/softskills', (req, res) => {
-            res.sendFile(__dirname + '/softskills.html');
-        });
-
-        this.app.get('/empresas', (req, res) => {
-            res.sendFile(__dirname + '/empresas.html');
-        });
-
-        this.app.get('/mediasalarial', (req, res) => {
-            res.sendFile(__dirname + '/mediasalarial.html');
-        });
-
-        this.app.get('/automacao', (req, res) => {
-            res.sendFile(__dirname + '/automacao.html');
-        });
-
-        this.app.get('/ramificacoes', (req, res) => {
-            res.sendFile(__dirname + '/ramificacoes.html');
-        });
-
-        this.app.get('/sobre', (req, res) => {
-            res.sendFile(__dirname + '/sobre.html');
-        });
-
-        this.app.get('/chat', (req, res) => {
-            res.sendFile(__dirname + '/chat.html');
-        });
-
-        this.app.get('/cadastroUsuario', (req, res) => {
-            res.sendFile(__dirname + '/cadastroUsuario.html');
-        });
     }
-    swagger(){
+    swagger() {
         /*Configurações do Swagger*/
-    const swaggerUi = require('swagger-ui-express');
-    const swaggerJsDoc = require('swagger-jsdoc');
+        const swaggerUi = require('swagger-ui-express');
+        const swaggerJsDoc = require('swagger-jsdoc');
 
-    const swaggerOptions = {
-        swaggerDefinition: {
-            openapi: "3.0.0",
-            info: {
-                title: "API de Tarefas",
-                version: "1.0.0",
-                description: "API CRUD para gerenciar tarefas",
+        const swaggerOptions = {
+            swaggerDefinition: {
+                openapi: "3.0.0",
+                info: {
+                    title: "API do Site TechForum",
+                    version: "1.0.0",
+                    description: "API's para comentários, usuários e chat",
+                },
+                servers: [{ url: "http://localhost:3308" }],
             },
-            servers: [{ url: "http://localhost:3308" }],
-        },
-        apis: [`${__dirname}/routes/*.js`], // Caminho para as rotas
-    };
+            apis: [`${__dirname}/routes/*.js`], // Caminho para as rotas
+        };
 
 
-    const swaggerDocs = swaggerJsDoc(swaggerOptions);
-    this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+        const swaggerDocs = swaggerJsDoc(swaggerOptions);
+        this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
     }
 }

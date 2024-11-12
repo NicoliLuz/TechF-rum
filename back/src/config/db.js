@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     user: process.env.DB_USER, /*nome do usuário*/
     password: process.env.DB_PASSWORD, /*senha*/
     database: process.env.DB_DATABASE, /*nome do banco*/
-    timezone: "America/Sao_Paulo    " /*define o fuso horario para exibir datas e horas (para os posts)*/
+    timezone: "America/Sao_Paulo" /*define o fuso horario para exibir datas e horas (para os posts)*/
 });
 
 /*Estabelece a conexão com o banco*/
