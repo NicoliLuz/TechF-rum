@@ -89,9 +89,9 @@
                     /*await espera a resposta da requisição antes de continuar a execução do código*/
                     var baseURL = `${window.location.hostname}`;
                     if (baseURL == 'tech-forum-front.vercel.app') {
-                        baseURL = 'https://tech-forum-front.vercel.app:443'
+                        baseURL = 'https://tech-forum-nine.vercel.app:443'
                     } else {
-                        baseURL = 'http://localhost:3308/front'
+                        baseURL = 'http://localhost:3308'
                     }
 
                     const response = await fetch(baseURL + '/usuario/logar', {
@@ -112,6 +112,15 @@
                         localStorage.setItem("email", JSON.parse(body).email);
 
                         formulario.reset(); /*Limpa os campos do formulário*/
+
+
+                        var baseURL2 = `${window.location.hostname}`;
+                        if (baseURL2 == 'tech-forum-front.vercel.app') {
+                            baseURL2 = 'https://tech-forum-front.vercel:443'
+                        } else {
+                            baseURL2 = 'http://localhost:3308/front'
+                        }
+
                         window.location.href = baseURL + "/chatUsuario.html"; /*Redireciona o usuário para a página de chat.*/
                     } else {
                         alert(responseData.message); /*xibe uma mensagem de erro se a resposta não for bem-sucedida*/
