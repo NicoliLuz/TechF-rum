@@ -14,7 +14,7 @@ class App {
         this.io = require("socket.io")(this.http, { /*configura o Socket.io para comunicação em tempo real*/
             cors: {
                 // permite o browser fazer requisições da porta 5500 por causa do live server
-                origin: "http://127.0.0.1:5500",
+                origin: "*:5500",
                 methods: ["GET", "POST", "PUT", "DELETE"]
             }
         });
