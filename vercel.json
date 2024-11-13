@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "outputDirectory": ".",
+  "outputDirectory": ".", 
   "builds": [
     {
       "src": "back/src/server.js",
