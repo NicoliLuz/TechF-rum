@@ -3,11 +3,13 @@
   "builds": [
     {
       "src": "back/src/server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "outputDirectory": "back"
     },
     {
       "src": "front/**",
-      "use": "@vercel/static"
+      "use": "@vercel/static",
+      "outputDirectory": "front"
     }
   ],
   "routes": [
