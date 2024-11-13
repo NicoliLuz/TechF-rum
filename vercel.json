@@ -1,15 +1,14 @@
 {
   "version": 2,
+  "outputDirectory": ".",
   "builds": [
     {
       "src": "back/src/server.js",
-      "use": "@vercel/node",
-      "outputDirectory": "back"
+      "use": "@vercel/node"
     },
     {
       "src": "front/**",
-      "use": "@vercel/static",
-      "outputDirectory": "front"
+      "use": "@vercel/static"
     }
   ],
   "routes": [
