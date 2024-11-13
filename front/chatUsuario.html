@@ -54,70 +54,39 @@
   </main>
   <footer></footer>
 
+  <script src="http://localhost:3308/socket.io/socket.io.js"></script>
   <script>
+    var socket = io.connect('http://localhost:3308');
+    const messages = document.getElementById('messages');
+    const input = document.getElementById('input');
+    const usuarioLogado = localStorage.getItem("usuario");
 
-    function loadScript(scriptPath, callback) {
-      var script = document.createElement('script');
-
-      var urlSocket = `${window.location.hostname}`;
-      if (urlSocket == 'tech-forum-front.vercel.app') {
-        urlSocket = 'https://tech-forum-nine.vercel.app/socket.io/socket.io.js';
-      } else {
-        urlSocket = 'http://localhost:3308/socket.io/socket.io.js';
+    document.addEventListener('submit', (e) => {
+      e.preventDefault()
+      if (input.value) {
+        var jsonObject = new Object();
+        jsonObject.usuarioLogado = usuarioLogado;
+        jsonObject.message = input.value;
+        socket.emit('message', JSON.stringify(jsonObject));
+        var element = document.getElementById("scrollDiv");
+        element.scrollIntoView(false);
+        input.value = '';
       }
-      script.setAttribute('src', urlSocket);
-      script.onload = callback();
-      document.head.appendChild(s);
-    };
+    })
 
+    socket.on('message', (msg) => {
+      const li = document.createElement('li')
+      const divUsuario = document.createElement('div')
+      const divMessage = document.createElement('div')
+      const message = JSON.parse(msg)
 
-    loadScript('socket.io.js', function () {
-      var script = document.createElement('script');
+      divUsuario.textContent = message.usuarioLogado + ' falou: '
+      divUsuario.className = "chatUsuario"
+      divMessage.textContent = message.message
 
-      var urlSocket = `${window.location.hostname}`;
-      var urlConnect = '';
-      if (urlSocket == 'tech-forum-front.vercel.app') {
-        urlConnect = 'https://tech-forum-nine.vercel.app'
-      } else {
-        urlConnect = 'http://localhost:3308'
-      }
-
-      //script that use socket.io
-
-      var socket = io.connect(urlConnect);
-      const messages = document.getElementById('messages');
-      const input = document.getElementById('input');
-      const usuarioLogado = localStorage.getItem("usuario");
-
-      document.addEventListener('submit', (e) => {
-        e.preventDefault()
-        if (input.value) {
-          var jsonObject = new Object();
-          jsonObject.usuarioLogado = usuarioLogado;
-          jsonObject.message = input.value;
-          socket.emit('message', JSON.stringify(jsonObject));
-          var element = document.getElementById("scrollDiv");
-          element.scrollIntoView(false);
-          input.value = '';
-        }
-      })
-
-      socket.on('message', (msg) => {
-        const li = document.createElement('li')
-        const divUsuario = document.createElement('div')
-        const divMessage = document.createElement('div')
-        const message = JSON.parse(msg)
-
-        divUsuario.textContent = message.usuarioLogado + ' falou: '
-        divUsuario.className = "chatUsuario"
-        divMessage.textContent = message.message
-
-        li.appendChild(divUsuario)
-        li.appendChild(divMessage)
-        messages.appendChild(li)
-      })
-    });
+      li.appendChild(divUsuario)
+      li.appendChild(divMessage)
+      messages.appendChild(li)
+    })
   </script>
 </body>
-
-</html>
