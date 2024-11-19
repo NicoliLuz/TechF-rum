@@ -56,37 +56,41 @@
 
   <script src="http://localhost:3308/socket.io/socket.io.js"></script>
   <script>
+    //Estabelece uma conexão com o servidor Socket.IO rodando em HTTP
     var socket = io.connect('http://localhost:3308');
+
+    //Obtém os elementos HTML onde as mensagens serão exibidas e onde o usuário digita
     const messages = document.getElementById('messages');
     const input = document.getElementById('input');
     const usuarioLogado = localStorage.getItem("usuario");
 
     document.addEventListener('submit', (e) => {
       e.preventDefault()
-      if (input.value) {
-        var jsonObject = new Object();
-        jsonObject.usuarioLogado = usuarioLogado;
-        jsonObject.message = input.value;
+      if (input.value) { //Verifica se há algo digitado na caixa de input
+        var jsonObject = new Object(); //Cria um novo objeto para armazenar os dados da mensagem
+        jsonObject.usuarioLogado = usuarioLogado; //Adiciona o nome do usuário que está logado
+        jsonObject.message = input.value; //Diciona a mensagem digitada pelo usuário
         socket.emit('message', JSON.stringify(jsonObject));
-        var element = document.getElementById("scrollDiv");
+        var element = document.getElementById("scrollDiv"); //Enrola a mensagem para que a tela de chat role até o final sempre que uma nova mensagem for enviada
         element.scrollIntoView(false);
-        input.value = '';
+        input.value = ''; // Limpa o campo de entrada de texto
       }
     })
 
-    socket.on('message', (msg) => {
-      const li = document.createElement('li')
+    socket.on('message', (msg) => { //Ouve o evento 'message' emitido pelo servidor e executa a função sempre que uma nova mensagem é recebida
+      const li = document.createElement('li') //Cria um novo item de lista para a mensagem
       const divUsuario = document.createElement('div')
       const divMessage = document.createElement('div')
-      const message = JSON.parse(msg)
+      const message = JSON.parse(msg) //Analisa a mensagem recebida (no formato JSON) e extrai os dados
 
+      //Exibe o nome do usuário que enviou a mensagem e o conteúdo 
       divUsuario.textContent = message.usuarioLogado + ' falou: '
       divUsuario.className = "chatUsuario"
       divMessage.textContent = message.message
 
-      li.appendChild(divUsuario)
-      li.appendChild(divMessage)
-      messages.appendChild(li)
+      li.appendChild(divUsuario) //Adiciona a div do usuário ao item de lista (li)
+      li.appendChild(divMessage) //Adiciona a div da mensagem ao item de lista (li)
+      messages.appendChild(li) //Adiciona o item de lista (li) à lista de mensagens na tela
     })
   </script>
 </body>

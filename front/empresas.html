@@ -84,16 +84,16 @@
     <script>
         /*Acionando um evento na DOM*/
         document.addEventListener('DOMContentLoaded', () => {
-            const formulario = document.getElementById('formsComentario');
+            const formulario = document.getElementById('formsComentario'); //seleciona o HTML com esse ID com o usuario envia comentarios
 
             formulario.addEventListener('submit', async (event) => {
                 event.preventDefault(); /*evita um comportamento padrao de erro, evita de executar uma ação padrão do navegador*/
 
-                const formData = new FormData(formulario); /*facilita o envio de dados de formulário, incluindo requisições HTTP*/
+                const formData = new FormData(formulario); /*Cria um objeto que coleta os dados do formulário*/
                 console.log(JSON.stringify(formData));
 
-                const data = {};
-                formData.forEach((value, key) => { /*forEach - percorre cada valor-chave*/
+                const data = {}; //Cria um objeto vazio onde os dados do formulário serão armazenados
+                formData.forEach((value, key) => { /*Imprime no console cada chave e valor do formulário*/
                     console.log(key + ' - ' + value); /*Imprime no console a chave e o valor no formato chave - valor*/
                     data[key] = value; /*Adiciona ou atualiza a propriedade key no objeto data com o valor correspondente value*/
                 });

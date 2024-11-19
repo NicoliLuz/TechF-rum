@@ -25,6 +25,7 @@ async function criarUsuario(request, response) {
         /*Veirifica se senha e confirmação são iguais*/
         if (request.body.senha == request.body.confirmacaoSenha) {
 
+            //Consulta o SQL para enviar o usuario/cadastrar
             const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?,?,?)";
 
             /*Faz uma consulta no mySQL*/
@@ -74,6 +75,7 @@ async function logarUsuario(request, response) {
         console.log("email: ", request.body.email);
         console.log("senha: ", request.body.senha);
 
+        //Consulta o SQL para buscar usuario logado
         const query = "SELECT * FROM usuarios where email = ? and senha = ?";
 
         /*Faz uma consulta no mySQL*/
@@ -104,6 +106,7 @@ async function logarUsuario(request, response) {
     }
 }
 
+//Exporta as funcoes para usar em outros arquivos
 module.exports = {
     criarUsuario,
     logarUsuario

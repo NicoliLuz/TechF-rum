@@ -14,7 +14,7 @@ class App {
         this.io = require("socket.io")(this.http, { /*configura o Socket.io para comunicação em tempo real*/
             cors: {
                 // permite o browser fazer requisições da porta 5500 por causa do live server
-                origin: "*",
+                origin: "*", //permite requisicoes de qualquer origem (ex: porta diferente)
                 methods: ["GET", "POST", "PUT", "DELETE"]
             }
         });
@@ -26,7 +26,7 @@ class App {
 
     listenServer() { /*faz o servidor começar a funcionar e escutar na porta*/
         console.log('server chat iniciado');
-        this.http.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
+        this.http.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`)); //inicia o servidor na porta
     }
 
     listenSocket() { /*configura o Socket.io para lidar com conexões de usuários e mensagens*/
@@ -42,6 +42,7 @@ class App {
     setupRoutes() {
         /*importa o Path, usado para manipular arquivos*/
         const path = require('path');
+        
         /*importa o Router, que define o comportamento das rotas*/
         const router = require('./routes/dbRouter');
 

@@ -5,8 +5,8 @@ const connection = require('../config/db');
 const dotenv = require('dotenv').config();
 
 // Add comentários no menu
-async function addComentarioRamificacao(request, response) {
-    await addComentario(request, response, 'RAMIFICACAO');
+async function addComentarioRamificacao(request, response) { //a função assincrona executa acoes que exigem tempo, como acessar o BD
+    await addComentario(request, response, 'RAMIFICACAO'); //request = requisicao e response = resposta ao cliente
 }
 
 async function addComentarioMedia(request, response) {
@@ -26,9 +26,9 @@ async function addComentarioAutomacao(request, response) {
 }
 
 
-// listar
-async function listarComentariosRamificacao(request, response) {
-    await listarComentarios(request, response, 'RAMIFICACAO');
+// listar comentarios na pagina
+async function listarComentariosRamificacao(request, response) { //pega os valores do request para usar no response
+    await listarComentarios(request, response, 'RAMIFICACAO'); //espera a funcao assincrona ser executada e envia os post da pagina
 }
 
 async function listarComentariosMedia(request, response) {
@@ -49,7 +49,7 @@ async function listarComentariosAutomacao(request, response) {
 
 
 // Tabela postagens
-function listarComentarios(request, response, pagina) {
+function listarComentarios(request, response, pagina) { //lista comentarios do BD em uma pagina especifica
     try {
         // Recuperando Formulário
         const params = Array(
@@ -61,6 +61,7 @@ function listarComentarios(request, response, pagina) {
         console.log("nome: ", request.body.nome);
         console.log("textoPost: ", request.body.textoPost);
 
+        //Consulta o SQL para ordenar os post por data
         const query = "SELECT * FROM postagens WHERE pagina = ? ORDER BY datapost DESC LIMIT 50";
 
         /*Faz uma consulta no mySQL*/
@@ -92,7 +93,7 @@ function listarComentarios(request, response, pagina) {
 function addComentario(request, response, pagina) {
     try {
         // Recuperando Formulário
-        const params = Array(
+        const params = Array( //dados necessarios para comentar
             request.body.nome,
             request.body.textoPost,
             pagina
@@ -130,6 +131,7 @@ function addComentario(request, response, pagina) {
     }
 }
 
+//Exporta as funcoes para usar em outros arquivos
 module.exports = {
     addComentarioRamificacao,
     addComentarioMedia,

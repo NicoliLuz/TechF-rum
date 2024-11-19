@@ -321,8 +321,8 @@
     <script src="./postagens.js"></script>
     <script>
         // Carrega o HTML de Comentários
-        document.addEventListener('DOMContentLoaded', async () => {
-            listarComentariosFormatado('AUTOMACAO');
+        document.addEventListener('DOMContentLoaded', async () => { //Apos carregar a DOM (estrutura do HTML)
+            listarComentariosFormatado('AUTOMACAO'); //Chama a funcao listar da AUTOMACAO
         });
     </script>
     <script>
@@ -336,7 +336,7 @@
                 const formData = new FormData(formulario); /*facilita o envio de dados de formulário, incluindo requisições HTTP*/
                 console.log(JSON.stringify(formData));
 
-                const data = {};
+                const data = {}; //Cria um objeto vazio onde os dados do formulário serão armazenados
                 formData.forEach((value, key) => { /*forEach - percorre cada valor-chave*/
                     console.log(key + ' - ' + value); /*Imprime no console a chave e o valor no formato chave - valor*/
                     data[key] = value; /*Adiciona ou atualiza a propriedade key no objeto data com o valor correspondente value*/
